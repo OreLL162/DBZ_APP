@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,12 +33,10 @@ public class CustomeAdapter extends RecyclerView.Adapter<CustomeAdapter.MyViewHo
             textViewName = itemView.findViewById(R.id.textView);
             textViewVersion = itemView.findViewById(R.id.textView2);
             imageView = itemView.findViewById(R.id.imageView);
-
+            itemView.setOnClickListener(v -> Toast.makeText(v.getContext(), "Name: " + textViewVersion.getText(), Toast.LENGTH_SHORT).show());
 
         }
     }
-
-
 
 
     @NonNull
@@ -58,8 +57,6 @@ public class CustomeAdapter extends RecyclerView.Adapter<CustomeAdapter.MyViewHo
         textViewName.setText(dataset.get(position).getName());
         textViewVersion.setText(dataset.get(position).getVersion());
         imageView.setImageResource(dataset.get(position).getImage());
-
-
 
     }
 
